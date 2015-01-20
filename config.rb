@@ -45,7 +45,7 @@ configure do
   set :assets, files
 
   # Redis and Memcached
-  set :redis_url, ENV['REDISCLOUD_URL']
+  set :redis_url, ENV['REDISCLOUD_URL'] || 'http://localhost:6379/'
 end
 
 
