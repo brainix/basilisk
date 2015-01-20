@@ -1,0 +1,10 @@
+language: ruby
+rvm:
+- 2.1.5
+deploy:
+  provider: heroku
+  api_key:
+    secure: GwGU6kzY5+P+SRQn2klpI8VU0Hj83m8IiF7J3TT7FWs+jYGtiL7vMEOvAzw95/z9nCfTTd0Ev0t81++Q9xjxIu0ta5l5e+gBRPDFZKCz9SdzONwXvUv7dc0zjKpJx/1srok1WwvgAhDIlv1nIP9ycLtAH2g7qOB7jCKjxk7qdTM=
+  app: roko-basilisk
+  on:
+    repo: brainix/basilisk

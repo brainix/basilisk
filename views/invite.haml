@@ -1,0 +1,17 @@
+-#----------------------------------------------------------------------------#
+-#   invite.haml                                                              #
+-#                                                                            #
+-#   Copyright (c) 2015, Seventy Four, Inc.                                   #
+-#   All rights reserved.                                                     #
+-#----------------------------------------------------------------------------#
+
+
+
+%section
+  %form{method: 'post'}
+    - following.each do |user|
+      %label
+        %input{type: 'checkbox', name: 'users[]', value: user.login}
+        %img{src: user.avatar_url, alt: user.login}
+        #{user.login}
+    %input{type: 'submit', value: 'Invite'}

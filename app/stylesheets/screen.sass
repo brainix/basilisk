@@ -1,0 +1,31 @@
+/*---------------------------------------------------------------------------*
+ |   screen.sass                                                             |
+ |                                                                           |
+ |   Copyright (c) 2015, Seventy Four, Inc.                                  |
+ |   All rights reserved.                                                    |
+ *---------------------------------------------------------------------------*/
+
+
+
+// CSS media queries to detect device type
+$device-mobile: "only screen and (max-device-width: 640px)"
+$device-tablet: "only screen and (min-device-width : 641px) and (max-device-width: 1279px)"
+$device-desktop: "only screen and (min-device-width: 1280px)"
+
+// CSS media queries to detect device orientation
+$orientation-portrait: "(orientation: portrait)"
+$orientation-landscape: "(orientation: landscape)"
+
+
+
+html, body
+  -webkit-text-size-adjust: none
+
+label
+  display: block
+
+  img
+    height: 1em
+    width: 1em
+    margin: 0 .05em 0 .1em
+    vertical-align: -0.1em
