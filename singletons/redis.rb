@@ -41,7 +41,8 @@ module Singletons
     private
 
     def initialize
-      uri, options = URI.parse($settings.redis_url), {}
+      uri = $settings.redis_url || 'http://localhost:6379/'
+      uri, options = URI.parse(uri), {}
       %i[host port password].each { |sym| options[sym] = uri.public_send(sym) }
       @redis = ::Redis.new(options)
     end
