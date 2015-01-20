@@ -8,11 +8,11 @@
 
 
 require 'addressable/uri'
-require 'json'
+# require 'json'
 require 'net/http'
 require 'octokit'
-require 'openssl'
-require 'uri'
+# require 'openssl'
+# require 'uri'
 
 require './config'
 require './singletons/redis'
