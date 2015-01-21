@@ -8,11 +8,8 @@
 
 
 require 'addressable/uri'
-# require 'json'
 require 'net/http'
 require 'octokit'
-# require 'openssl'
-# require 'uri'
 
 require './config'
 require './singletons/redis'
@@ -75,7 +72,7 @@ get '/:directory/:file' do
 end
 
 get '/' do
-  haml :index
+  haml :index, locals: { title: 'Home' }
 end
 
 get '/login' do
@@ -102,7 +99,8 @@ end
 get '/invite' do
   confirm
   o = octokit(session[:access_token])
-  haml :invite, locals: { following: Octokit.following(o.user.login) }
+  locals = { title: 'Invite', following: Octokit.following(o.user.login) }
+  haml :invite, locals: locals
 end
 
 post '/invite' do

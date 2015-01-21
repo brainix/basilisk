@@ -16,17 +16,42 @@ $device-desktop: "only screen and (min-device-width: 1280px)"
 $orientation-portrait: "(orientation: portrait)"
 $orientation-landscape: "(orientation: landscape)"
 
+$color-background: #E6E6E6
+
+
+
+// Inline http://fonts.googleapis.com/css?family=Montserrat:400,700
+@font-face
+  font-family: 'Montserrat'
+  font-style: normal
+  font-weight: 400
+  src: local('Montserrat-Regular'), url(http://fonts.gstatic.com/s/montserrat/v6/zhcz-_WihjSQC0oHJ9TCYMDdSZkkecOE1hvV7ZHvhyU.ttf) format('truetype')
+
+@font-face
+  font-family: 'Montserrat'
+  font-style: normal
+  font-weight: 700
+  src: local('Montserrat-Bold'), url(http://fonts.gstatic.com/s/montserrat/v6/IQHow_FEYlDC4Gzy_m8fcsBaWKZ57bY3RXgXH6dOjZ0.ttf) format('truetype')
+
 
 
 html, body
   -webkit-text-size-adjust: none
+  font-family: 'Montserrat', sans-serif
+  font-size: 24px
 
 body
-  width: 640px
-  margin: 0 auto
+  & > *
+    width: 640px
+    margin: 0 auto
+    background: $color-background
+
+h2
+  font-weight: 400
 
 label
   display: block
+  line-height: 1.5em
 
   img
     height: 1em
