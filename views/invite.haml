@@ -8,9 +8,10 @@
 
 
 %form{method: 'post'}
-  - following.each do |user|
-    %label
-      %input{type: 'checkbox', name: 'users[]', value: user.login}
+  - following.each_with_index do |user, index|
+    %input{id: "user-#{index}", type: 'checkbox', name: 'users[]',
+           value: user.login}
+    %label{for: "user-#{index}"}
       %img{src: user.avatar_url, alt: user.login}
       #{user.login}
   %input{type: 'submit', value: 'Invite'}

@@ -44,12 +44,15 @@ helpers do
     o
   end
 
-  def confirm
-    halt 401 if session[:access_token].nil?
+  def authenticated?
+    !session[:access_token].nil?
+  end
+
+  def authorized?
     o = octokit(ENV['GITHUB_ACCESS_TOKEN'])
     collabs = o.collabs('brainix/basilisk').map { |user| user.login }
     o = octokit(session[:access_token])
-    halt 403 unless collabs.include?(o.user.login)
+    collabs.include?(o.user.login)
   end
 end
 
@@ -97,19 +100,23 @@ get '/redirect' do
 end
 
 get '/invite' do
-  confirm
+  halt 401 unless authenticated?
+  halt 403 unless authorized?
   o = octokit(session[:access_token])
   locals = { title: 'Invite', following: Octokit.following(o.user.login) }
   haml :invite, locals: locals
 end
 
 post '/invite' do
-  confirm
+  halt 401, { message: 'unauthorized' }.to_json unless authenticated?
+  halt 403, { message: 'forbidden' }.to_json unless authorized?
   o = octokit(session[:access_token])
   following = Octokit.following(o.user.login).map { |user| user.login }
-  halt 403 unless (request[:users] - following).empty?
+  users = request[:users] || []
+  halt 403, { message: 'forbidden' }.to_json unless (users - following).empty?
   o = octokit(ENV['GITHUB_ACCESS_TOKEN'])
-  request[:users].each { |user| o.add_collab('brainix/basilisk', user) }
+  users.each { |user| o.add_collab('brainix/basilisk', user) }
+  { users: users }.to_json
 end
 
 get '/logout' do

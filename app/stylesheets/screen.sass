@@ -16,8 +16,6 @@ $device-desktop: "only screen and (min-device-width: 1280px)"
 $orientation-portrait: "(orientation: portrait)"
 $orientation-landscape: "(orientation: landscape)"
 
-$color-background: #E6E6E6
-
 
 
 // Inline http://fonts.googleapis.com/css?family=Montserrat:400,700
@@ -41,17 +39,24 @@ html, body
   font-size: 24px
 
 body
-  & > *
-    width: 640px
-    margin: 0 auto
-    background: $color-background
+  background-image: url(/background.png)
+  background-repeat: no-repeat
+  background-position: center center
 
-h2
-  font-weight: 400
+section
+  width: 640px
+  height: 100vh
+  margin: 0 auto
+  overflow-y: scroll
+  background: white
+
+input[type=checkbox]
+  display: none
 
 label
   display: block
   line-height: 1.5em
+  cursor: pointer
 
   img
     height: 1em
