@@ -31,7 +31,7 @@
       %link{rel: 'stylesheet', type: 'text/css', href: uri(css)}
     - %w[//ajax.googleapis.com //stats.g.doubleclick.net].each do |dns|
       %link{rel: 'dns-prefetch', href: dns}
-    - %w[].each do |asset|
+    - %w[/images/background.png].each do |asset|
       %link{rel: 'prefetch', href: uri(asset)}
 
   %body
