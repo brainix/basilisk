@@ -54,6 +54,10 @@ helpers do
     o = octokit(session[:access_token])
     collabs.include?(o.user.login)
   end
+
+  def user
+    octokit(session[:access_token]).user if authenticated?
+  end
 end
 
 
@@ -75,7 +79,7 @@ get '/:directory/:file' do
 end
 
 get '/' do
-  haml :index, locals: { title: 'Home' }
+  haml :index, locals: { title: 'Home', user: user }
 end
 
 get '/login' do
@@ -103,7 +107,11 @@ get '/invite' do
   halt 401 unless authenticated?
   halt 403 unless authorized?
   o = octokit(session[:access_token])
-  locals = { title: 'Invite', following: Octokit.following(o.user.login) }
+  locals = {
+    title: 'Invite',
+    user: user,
+    following: Octokit.following(o.user.login),
+  }
   haml :invite, locals: locals
 end
 

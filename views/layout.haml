@@ -37,13 +37,21 @@
       ].each do |asset|
       %link{rel: 'prefetch', href: uri(asset)}
 
+    -# Apple meta tags
+    %meta{name: 'apple-mobile-web-app-capable', content: 'yes'}
+    %meta{name: 'apple-mobile-web-app-status-bar-style',
+                content: 'black-translucent'}
+    %meta{name: 'viewport',
+                content: 'width=device-width, initial-scale=1.0, user-scalable=no'}
+
   %body
     %section
       %header
         %h1
           #{name} &mdash; #{title}
-          %a{href: uri('/')}
-            %img{src: '/images/logo-trans-800.png', alt: name}
+          %a{href: uri(user.nil? ? '/login' : '/logout')}
+            %img{src: user.nil? ? uri('/images/logo-trans-800.png') : user.avatar_url,
+                 alt: user.nil? ? 'Log In' : 'Log Out'}
         =yield
 
     %script{src: '//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js'}

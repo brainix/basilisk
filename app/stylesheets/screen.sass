@@ -41,6 +41,9 @@ html, body
   font-family: 'Montserrat', sans-serif
   font-size: 24px
 
+  @media #{$device-mobile}
+    font-size: 12px
+
 body
   background-image: url(/images/background.png)
   background-repeat: no-repeat
@@ -50,15 +53,28 @@ section
   width: 640px
   height: 100vh
   margin: 0 auto
+  overflow-y: hidden
   overflow-y: scroll
   background: white
+
+  @media #{$device-mobile}
+    @media #{$orientation-portrait}
+      width: 100%
+    @media #{$orientation-landscape}
+      width: 320px
 
   & > *
     padding: 0 12px
 
+    @media #{$device-mobile}
+      padding: 0 6px
+
 h1
   margin: 48px 0
   color: $color-highlight
+
+  @media #{$device-mobile}
+    margin: 24px 0
 
   &>a
     display: inline-block
@@ -87,6 +103,9 @@ input[type=submit]
   padding: 0.25em 0.5em
   background-color: $color-background
   color: $color-highlight
+
+  @media #{$device-mobile}
+    margin: 24px auto
 
   &:hover
     background-color: $color-highlight
