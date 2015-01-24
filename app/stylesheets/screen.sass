@@ -80,6 +80,23 @@ h1
     display: inline-block
     float: right
 
+p
+  margin: 0 0 48px 0
+  line-height: 1.5em
+
+  @media #{$device-mobile}
+    margin: 0 0 24px 0
+
+  &>a:hover
+    background-color: $color-highlight
+    color: $color-background
+
+a, input[type=submit]
+  font-weight: bold
+  text-decoration: none
+  background-color: $color-background
+  color: $color-highlight
+
 img
   height: 1em
   width: 1em
@@ -94,15 +111,14 @@ label
   line-height: 1.5em
   cursor: pointer
 
-input[type=submit]
+a.button, input[type=submit]
   display: block
   width: 50%
   margin: 48px auto
   border: 2px solid $color-highlight
   border-radius: 4px
   padding: 0.25em 0.5em
-  background-color: $color-background
-  color: $color-highlight
+  text-align: center
 
   @media #{$device-mobile}
     margin: 24px auto
