@@ -31,13 +31,19 @@
       %link{rel: 'stylesheet', type: 'text/css', href: uri(css)}
     - %w[//ajax.googleapis.com //stats.g.doubleclick.net].each do |dns|
       %link{rel: 'dns-prefetch', href: dns}
-    - %w[/images/background.png].each do |asset|
+    - ['/images/background.png',
+       '/images/logo-trans-800.png', '/images/logo-trans-400.png',
+       '/images/logo-white-800.png', '/images/logo-white-400.png',
+      ].each do |asset|
       %link{rel: 'prefetch', href: uri(asset)}
 
   %body
     %section
       %header
-        %h1 #{name} &mdash; #{title}
+        %h1
+          #{name} &mdash; #{title}
+          %a{href: uri('/')}
+            %img{src: '/images/logo-trans-800.png', alt: name}
         =yield
 
     %script{src: '//ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js'}

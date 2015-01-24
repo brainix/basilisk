@@ -16,6 +16,9 @@ $device-desktop: "only screen and (min-device-width: 1280px)"
 $orientation-portrait: "(orientation: portrait)"
 $orientation-landscape: "(orientation: landscape)"
 
+$color-background: white
+$color-highlight: #B3D685
+
 
 
 // Inline http://fonts.googleapis.com/css?family=Montserrat:400,700
@@ -50,6 +53,23 @@ section
   overflow-y: scroll
   background: white
 
+  & > *
+    padding: 0 12px
+
+h1
+  margin: 48px 0
+  color: $color-highlight
+
+  &>a
+    display: inline-block
+    float: right
+
+img
+  height: 1em
+  width: 1em
+  margin: 0
+  vertical-align: -0.1em
+
 input[type=checkbox]
   display: none
 
@@ -58,8 +78,16 @@ label
   line-height: 1.5em
   cursor: pointer
 
-  img
-    height: 1em
-    width: 1em
-    margin: 0 .05em 0 .1em
-    vertical-align: -0.1em
+input[type=submit]
+  display: block
+  width: 50%
+  margin: 48px auto
+  border: 2px solid $color-highlight
+  border-radius: 4px
+  padding: 0.25em 0.5em
+  background-color: $color-background
+  color: $color-highlight
+
+  &:hover
+    background-color: $color-highlight
+    color: $color-background
