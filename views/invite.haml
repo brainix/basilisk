@@ -7,7 +7,12 @@
 
 
 
-- if following
+- if following.empty?
+  %p
+    You can only invite people who you&rsquo;re following on GitHub to
+    collaborate on Basilisk.  You&rsquo;re not following anyone.  Go follow
+    some people.
+- else
   %form{method: 'post'}
     - following.each do |user|
       %input{id: "user-#{user.login}", class: "user-#{user.login}",
@@ -17,8 +22,3 @@
         #{user.login}
     %input{type: 'submit', value: 'Invite Collaborators'}
   %p#thank-you Thank you!
-- else
-  %p
-    You can only invite people who you&rsquo;re following on GitHub to
-    collaborate on Basilisk.  You&rsquo;re not following anyone.  Go follow
-    some people.
