@@ -98,6 +98,30 @@ class GoogleAnalytics extends Singleton
 
 
 
+class Invite extends Singleton
+    $form = null
+
+    constructor: ->
+        $form = $ 'form'
+        return false unless $form['length']
+        $form['on'] 'submit', submit
+        true
+
+    submit = ->
+        [users, classes] = [[], []]
+        $(':checked')['each'] ->
+            users['push'] $(@)['val']()
+            classes['push'] ".#{ $(@)['attr'] 'class' }"
+        $(classes['join'] ', ')['slideUp'] 400, ->
+            unless $('label:visible')['length']
+                $form['fadeOut'] 400, ->
+                    $('#thank-you')['fadeIn']()
+        $['post'] '/invite', 'users[]': users, null, 'json'
+        false
+
+
+
 $ ->
     Util.instance()
     GoogleAnalytics.instance 'UA-52100043-3', 'basilisk.us'
+    Invite.instance()

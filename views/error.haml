@@ -4,3 +4,19 @@
 -#   Copyright (c) 2015, Seventy Four, Inc.                                   #
 -#   All rights reserved.                                                     #
 -#----------------------------------------------------------------------------#
+
+- case title
+- when 401
+  %p
+    You have to be a collaborator, and you have to be logged in to do that.
+    %a{href: 'mailto:basilisk@74inc.com?subject=Invite Me!'}<
+      Request an invitation
+    to collaborate or&nbsp;
+    %a{href: uri('/login')}> Log in via GitHub
+    \.
+- when 403
+  %p
+    You have to be a collaborator to do that.
+    %a{href: 'mailto:basilisk@74inc.com?subject=Invite Me!'}<
+      Request an invitation
+    to collaborate.
