@@ -27,7 +27,8 @@ Complete the following steps in the same Terminal session to avoid unnecessary c
 3. Install [Homebrew](http://brew.sh); in Terminal, issue the command: `$ ruby -e "$(curl -fsSL https://raw.github.com/Homebrew/homebrew/go/install)"`
 4. Install [RVM](https://rvm.io) and Ruby 2.1.5; in Terminal, issue the commands:
   1. `$ \curl -sSL https://get.rvm.io | bash -s stable`
-  2. `$ rvm install 2.1.5`
+  2. `source $HOME/.rvm/scripts/rvm`
+  3. `$ rvm install 2.1.5`
 5. Ensure that you&rsquo;re using Ruby 2.1.5; in Terminal, issue the command: `$ rvm use 2.1.5`
 6. Install [Redis](http://redis.io); in Terminal, issue the command: `$ brew install redis`
 7. Install the [Heroku Toolbelt](https://toolbelt.heroku.com).
