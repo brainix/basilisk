@@ -89,7 +89,6 @@ class GoogleAnalytics extends Singleton
     externalLink: (href) ->
         window['open'] href, '_blank'
         GoogleAnalytics.instance().trackEvent 'Outbound Link', 'Click', href, null, true
-        mixpanel['track'] 'Outbound Link Click'
 
     externalLink = (eventObject) ->
         href = eventObject['target']['href']
