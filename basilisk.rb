@@ -107,10 +107,11 @@ get '/invite' do
   halt 401 unless authenticated?
   halt 403 unless authorized?
   o = octokit(session[:access_token])
+  p session[:access_token]
   locals = {
     title: 'Invite',
     user: user,
-    following: Octokit.following(o.user.login),
+    following: o.following(o.user.login),
   }
   haml :invite, locals: locals
 end
@@ -119,7 +120,7 @@ post '/invite' do
   halt 401, { message: 'unauthorized' }.to_json unless authenticated?
   halt 403, { message: 'forbidden' }.to_json unless authorized?
   o = octokit(session[:access_token])
-  following = Octokit.following(o.user.login).map { |user| user.login }
+  following = o.following(o.user.login).map { |user| user.login }
   users = request[:users] || []
   halt 403, { message: 'forbidden' }.to_json unless (users - following).empty?
   o = octokit(ENV['GITHUB_ACCESS_TOKEN'])
