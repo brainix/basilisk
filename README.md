@@ -16,6 +16,10 @@ Since we deploy continuously, if you push changes to our code on GitHub, you&rsq
 3. Invite your friends to collaborate.
 4. Post about Basilisk anywhere you want.
 
+## Why the name &ldquo;Basilisk&rdquo;?
+
+I named this project after Roko&rsquo;s Basilisk.  &ldquo;**Warning**: Reading [this article](http://www.slate.com/articles/technology/bitwise/2014/07/roko_s_basilisk_the_most_terrifying_thought_experiment_of_all_time.html) [about Roko&rsquo;s Basilisk] may commit you to an eternity of suffering and torment.&rdquo;
+
 ## Hacking
 
 Complete the following steps in the same Terminal session to avoid unnecessary complexity.
